@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--（默认false）是否支持动态的方法调用,在URL上通过!method指定方法-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 可选值true,false （默认false），在开发模式下，struts2的动态重新加载配置和资源文件的功能会默认生效。同时开发模式下也会提供更完善的日志支持-->
+    <constant name="struts.devMode" value="true"/>
+    <!--  主要用于设置请求编码（默认值（UTF-8）） ，Head和Include标签的解析编码。  资源和配置文件的解析编码-->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+
+
+    <constant name="struts.objectFactory" value="spring"/>
+
+    <!--  可选值true,false（默认值依赖于struts.devMode）是否自动重新加载XML配置文件-->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+
+    <constant name="struts.action.extension" value="action,do"/>
+
+
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="error"></default-action-ref>
+
+        <action name="error">
+            <result>/error.html</result>
+        </action>
+    </package>
+
+    <include file="struts/userAction.xml"></include>
+</struts>
